@@ -51,6 +51,27 @@ function handleOperator(nextOperator) {
     calculator.operator = nextOperator; // Mettre à jour l'opérateur avec le prochain opérateur
 }
 
+function calculate(firstOperand, secondOperand, operator) {
+    if (operator === '+') { // Si l'opérateur est une addition
+        return firstOperand + secondOperand; // Retourner la somme des deux opérandes
+    } else if (operator === '-') { // Sinon, si l'opérateur est une soustraction
+        return firstOperand - secondOperand; // Retourner la différence entre les deux opérandes
+    } else if (operator === '*') { // Sinon, si l'opérateur est une multiplication
+        return firstOperand * secondOperand; // Retourner le produit des deux opérandes
+    } else if (operator === '/') { // Sinon, si l'opérateur est une division
+        return firstOperand / secondOperand; // Retourner le quotient des deux opérandes
+    }
+
+    return secondOperand; // Par défaut, retourner le deuxième opérande (cela peut se produire si aucun opérateur valide n'est passé)
+}
+
+function resetCalculator() {
+    calculator.displayValue = '0'; // Réinitialiser la valeur affichée à '0'
+    calculator.firstOperand = null; // Réinitialiser le premier opérande à null
+    calculator.waitingForSecondOperand = false; // Réinitialiser l'indicateur waitingForSecondOperand à false
+    calculator.operator = null; // Réinitialiser l'opérateur à null
+}
+
 
 
 
