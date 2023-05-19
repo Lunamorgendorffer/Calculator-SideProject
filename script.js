@@ -72,6 +72,47 @@ function resetCalculator() {
     calculator.operator = null; // Réinitialiser l'opérateur à null
 }
 
+function updateDisplay() {
+    const display = document.querySelector('.calculator-screen'); // Sélectionner l'élément avec la classe 'calculator-screen' dans le document
+    display.value = calculator.displayValue; // Mettre à jour la valeur de l'élément avec la valeur affichée du calculateur
+}
+
+updateDisplay();
+
+const keys = document.querySelector('.keys'); // Sélectionner l'élément avec la classe 'keys' dans le document
+
+keys.addEventListener('click', event => { // Ajouter un écouteur d'événements de clic à l'élément 'keys'
+    const { target } = event; // Extraire la cible de l'événement de clic
+    const { value } = target; // Extraire la valeur de la cible
+
+    if (!target.matches('button')) { // Si la cible ne correspond pas à un élément 'button', ne rien faire et sortir de la fonction
+        return;
+    }
+
+    switch (value) { // Vérifier la valeur de la cible
+        case '+': // Si la valeur est '+'
+        case '-': // Ou si la valeur est '-'
+        case '*': // Ou si la valeur est '*'
+        case '/': // Ou si la valeur est '/'
+        case '=': // Ou si la valeur est '='
+            handleOperator(value); // Appeler la fonction handleOperator avec la valeur comme argument
+            break;
+        case '.': // Si la valeur est '.'
+            inputDecimal(value); // Appeler la fonction inputDecimal avec la valeur comme argument
+            break;
+        case 'all-clear': // Si la valeur est 'all-clear'
+            resetCalculator(); // Appeler la fonction resetCalculator
+            break;
+        default: // Pour toutes les autres valeurs
+            if (Number.isInteger(parseFloat(value))) { // Si la valeur est un entier valide
+                inputDigit(value); // Appeler la fonction inputDigit avec la valeur comme argument
+            }
+    }
+
+    updateDisplay(); // Appeler la fonction updateDisplay pour mettre à jour l'affichage
+});
+
+
 
 
 
