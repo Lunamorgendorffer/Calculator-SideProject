@@ -17,7 +17,7 @@
 .calculator-screen {
     width: 100%;
     font-size: 5rem;
-    height: 80px;
+    height: 100px;
     border: none;
     background-color: #252525;
     color: #fff;
@@ -29,18 +29,24 @@
 button {
   height: 60px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 15px;
   border: 1px solid #c4c4c4;
   background-color: transparent;
   font-size: 2rem;
   color: #333;
+ 
+  
+
+  
 }
 button:hover {
     background-color: #eaeaea;
+    filter: drop-shadow(0 0 0.75rem rgb(152, 152, 152));
 }
   
 .operator {
-    color: #337cac;
+    color: #1386c5;
+    
 }
   
 .all-clear {
@@ -52,5 +58,24 @@ button:hover {
 .all-clear:hover {
     background-color: #8e73f1;
     border-color: #755cd2;
+}
+
+.equal-sign {
+    background-color: #2e86c0;
+    border-color: #337cac;
+    color: #fff;
+    height: 100%;
+    grid-area: 2 / 4 / 6 / 5;
+}
+  
+.equal-sign:hover {
+    background-color: #4e9ed4;
+}
+  
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
 }
   
